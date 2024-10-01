@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 // Clone the repository from GitHub
-                git 'https://github.com/<your-username>/<your-repository>.git'
+                git 'https://github.com/devopsaziz/javasimple.git'
             }
         }
 
