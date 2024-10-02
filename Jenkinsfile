@@ -2,15 +2,15 @@ pipeline {
     agent any
 
     environment {
-        JAVA_HOME = tool 'JDK11'  // Assuming JDK 11 is configured in Jenkins Global Tool Configuration
+        JAVA_HOME = '/usr/lib/jvm/java-11-openjdk'
         PATH = "${JAVA_HOME}/bin:${env.PATH}"
     }
 
     stages {
         stage('Checkout Code') {
             steps {
-                // Clone the repository from GitHub
-                git 'https://github.com/devopsaziz/javasimple.git'
+                // Checkout code from the 'main' branch
+                git branch: 'main', url: 'https://github.com/devopsaziz/javasimple.git'
             }
         }
 
@@ -43,7 +43,6 @@ pipeline {
 
     post {
         always {
-            // Cleanup if necessary
             echo 'Pipeline complete.'
         }
     }
